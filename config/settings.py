@@ -145,15 +145,16 @@ LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/users/"
 
 
-# # Настройки JWT-токенов
-# REST_FRAMEWORK = {
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework_simplejwt.authentication.JWTAuthentication',
-#     ],
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.AllowAny',
-#     ]
-# }
+# Настройки JWT-токенов
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
 #
 # CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
 # CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
