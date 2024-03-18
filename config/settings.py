@@ -89,9 +89,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_db', # Название БД
+        'NAME': os.getenv('DB_NAME'), # Название БД
         'USER': 'postgres', # Пользователь для подключения
-        'PASSWORD': '1234', # Пароль для этого пользователя
+        'PASSWORD': os.getenv('DB_PASSWORD'), # Пароль для этого пользователя
+        'HOST': 'db',
+        'PORT': '5432'
+        # 'PORT': 'db',
     }
 }
 
@@ -132,9 +135,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
