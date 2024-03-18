@@ -27,6 +27,12 @@ class ModulesAPITestCase(APITestCase):
     def setUp(self):
         self.module = Modules.objects.create(number=1, title='Test Title', description='Test Description')
 
+    def test_module_list(self):
+        list_url = 'http://127.0.0.1:8000/modules/'
+        response = self.client.get(list_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        return response.data
+
     def test_module_update(self):
         url = f'http://127.0.0.1:8000/module/update/{self.module.pk}/'
         data = {'number': 2, 'title': 'Updated Title', 'description': 'Updated Description'}
